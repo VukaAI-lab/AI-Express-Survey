@@ -204,6 +204,15 @@
     100% { left: 92%; bottom: 170px; transform: rotate(-16deg); opacity: 0; } }
   @keyframes trail { 20% { opacity: 0; } 60% { opacity: .9; } 100% { opacity: 0; } }
   .fl-title { margin: 24px 0 6px; font-size: 20px; line-height: 1.3; font-weight: 600; animation: rise .6s 2.4s both; }
+  .fl-title { font-size: 22px; max-width: 24ch; margin-left: auto; margin-right: auto; text-wrap: balance; }
+  .fl-next { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 18px; animation: rise .6s 2.8s both; }
+  .fl-next div { text-align: center; padding: 8px 22px 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface-2);
+    box-shadow: inset 0 -3px 0 var(--gold); }
+  .fl-next small { display: block; font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  .fl-next b { display: block; font-size: 32px; line-height: 1.15; letter-spacing: .04em; font-weight: 600; color: var(--navy-d); }
+  .fl-next .ln { flex: 1 1 0; max-width: 90px; position: relative; border-top: 2px dashed var(--line); }
+  .fl-next .ln::after { content: ""; position: absolute; top: -5px; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+  .fl-next .ln:first-child::after { left: 0; } .fl-next .ln:last-child::after { right: 0; }
   .fl-sub { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.5; animation: rise .6s 2.6s both; }
   .flight .status { font-size: 12px; min-height: 0; margin: 8px 0 0; }
   .flight .status:empty { display: none; }
@@ -212,7 +221,7 @@
   .flight .row .btn { font-size: 13px; padding: 8px 16px; }
   .reveal { animation: rise .6s 3s both; }
   @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-  @media (prefers-reduced-motion: reduce) { .plane { animation: none; left: 30%; } .fl-title, .fl-sub, .reveal { animation: none; opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) { .plane { animation: none; left: 30%; } .fl-title, .fl-sub, .fl-next, .reveal { animation: none; opacity: 1; } }
 
   /* airport wallpaper */
   .wallpaper { background:
@@ -527,8 +536,8 @@ function renderResult() {
         <div class="pl-patch"><img src="${document.querySelector('.logo')?.src || ''}" alt=""></div>
       </div>
     </div>
-    <h2 class="fl-title">Thank you for boarding the AI Express</h2>
-    <p class="fl-sub">Thank you for helping shape VUKA’s AI journey for 2027.</p>
+    <h2 class="fl-title">Thank you for helping shape VUKA’s AI journey</h2>
+    <div class="fl-next"><span class="ln"></span><div><small>Next stop</small><b>2027</b></div><span class="ln"></span></div>
     <div class="status reveal" id="status">Sending…</div>
     <div class="row reveal" style="justify-content:center" id="actions"></div>
   </div>`;
