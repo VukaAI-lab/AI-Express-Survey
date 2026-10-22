@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "submittedAt": { "type": "string" },
+    "persona": { "type": "string" },
+    "score": { "type": "integer" },
+    "q1": { "type": "string" },
+    "q2": { "type": "string" },
+    "q3": { "type": "string" },
+    "q4": { "type": "string" },
+    "q5": { "type": "string" },
+    "q6": { "type": "string" },
+    "q7": { "type": "string" },
+    "q8": { "type": "string" },
+    "q9": { "type": "string" },
+    "q10": { "type": "string" }
+  }
+}
