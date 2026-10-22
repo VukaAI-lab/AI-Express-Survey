@@ -80,7 +80,7 @@ One JSON object per completed survey:
 ```
 
 - Multi-select answers are joined with `; `.
-- The request uses `Content-Type: text/plain` and `mode: 'no-cors'`. This lets it work with Power Automate, which does not send CORS headers. The page cannot read the reply, so it never shows a success or error message after the take-off screen.
+- The request uses `Content-Type: application/json`, which Power Automate needs to read the fields. The HTTP trigger allows requests from any website, so it works from GitHub Pages or the company domain. A failed send shows no message; the Copy and Download buttons appear instead.
 - If the request cannot be sent at all (for example, no internet), the take-off screen shows **Copy my answers** and **Download** buttons as a fallback.
 
 ## Going live

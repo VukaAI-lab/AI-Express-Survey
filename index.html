@@ -561,8 +561,9 @@ async function submit(payload) {
   };
   if (!CONFIG.endpoint) { st.textContent = ''; st.className = 'status'; fallback(); return; }
   try {
-    // no-cors: Power Automate's HTTP trigger sends no CORS headers, so the reply is unreadable but the request is delivered.
-    await fetch(CONFIG.endpoint, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain' }, body: json });
+    // Power Automate's HTTP trigger only parses the body as JSON when Content-Type is application/json (it allows CORS from any origin).
+    const r = await fetch(CONFIG.endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: json });
+    if (!r.ok) throw new Error(r.status);
     st.textContent = ''; st.className = 'status';
   } catch (e) {
     st.textContent = 'Couldn’t send. Please copy or download your answers.'; st.className = 'status err';
