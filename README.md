@@ -75,7 +75,7 @@ One JSON object per completed survey:
   "q7": "1 to 3 hours",
   "q8": "Yes, once or twice",
   "q9": "Energised",
-  "q10": "Hands-on training; Protected time to experiment"
+  "q10": "Practical training; Protected time to experiment"
 }
 ```
 
